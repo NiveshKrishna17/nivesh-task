@@ -84,7 +84,7 @@ export default function EditComponent({ singleData, toggle }) {
       toggle();
       queryClient.refetchQueries("table");
       reset();
-      toast.success(updateRes.statusText);
+      toast.success(`Updated Successfully`);
     }
   };
 

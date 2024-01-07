@@ -76,7 +76,7 @@ export default function Login() {
     );
     if (registerResponse.status === 201) {
       setSession("isAuthenticated", registerResponse?.data?._id);
-      toast.success(registerResponse.statusText);
+      toast.success(`${registerResponse.statusText} Successfully`);
       navigate("/dashboard");
       reset();
     } else {

@@ -29,7 +29,7 @@ export default function FetchTable() {
     const deleteRes = await deleteMutation.mutateAsync(id);
     if (deleteRes.status === 200) {
       queryClient.refetchQueries("table");
-      toast.success(deleteRes.statusText);
+      toast.success(`${deleteRes.statusText} Deleted Successfully`);
     } else {
       toast.error(deleteRes.statusText);
     }

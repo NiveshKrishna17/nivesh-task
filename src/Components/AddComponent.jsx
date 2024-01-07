@@ -74,7 +74,7 @@ export default function AddComponent({ toggle }) {
       toggle();
       queryClient.refetchQueries("table");
       reset();
-      toast.success(updateRes.statusText);
+      toast.success(`Added Successfully`);
     }
   };
   return (
