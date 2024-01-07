@@ -18,10 +18,8 @@ export const fetchSingleData = (id) => {
 };
 
 export const useFetchSingleData = (id) => {
-  return useQuery({
-    queryKey: ["singleData"],
-    queryFn: () => fetchSingleData(id),
-    select: (res) => res.data,
+  return useMutation(fetchSingleData, {
+    onSuccess: (singleSuccessData) => {},
   });
 };
 

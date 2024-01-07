@@ -8,6 +8,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import { useRegister } from "../React-Query/Post";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { setSession } from "../config/session";
 
 export default function Login() {
   const defaultValues = {
@@ -69,13 +70,12 @@ export default function Login() {
       password,
       confirmPassword,
     };
-    console.log("registerData: ", registerData);
 
     const registerResponse = await registerUserMutation.mutateAsync(
       registerData
     );
-    console.log("registerResponse: ", registerResponse);
     if (registerResponse.status === 201) {
+      setSession("isAuthenticated", registerResponse?.data?._id);
       toast.success(registerResponse.statusText);
       navigate("/dashboard");
       reset();
@@ -190,7 +190,6 @@ export default function Login() {
                   className="mt-5"
                   variant="primary"
                   type="submit"
-                  block
                   disabled={isSubmitting || !isValid}
                 >
                   Login

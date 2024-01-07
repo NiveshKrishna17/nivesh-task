@@ -21,8 +21,8 @@ export const useRegister = () => {
   });
 };
 
-export const update = (data) => {
-  return axios.put("/resource", { ...data });
+export const update = ({ id, data }) => {
+  return axios.put(`/resource/${id}`, { ...data });
 };
 
 export const useUpdate = () => {

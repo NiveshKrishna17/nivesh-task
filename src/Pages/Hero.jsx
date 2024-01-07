@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { getSession } from "../config/session";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -17,7 +18,14 @@ export default function Hero() {
                 idea of how you approach tasks relevant to the Frontend
                 Developer.
               </p>
-              <Button variant="primary" onClick={() => navigate("/register")}>
+              <Button
+                variant="primary"
+                onClick={() =>
+                  navigate(
+                    getSession("isAuthenticated") ? "/dashboard" : "/login"
+                  )
+                }
+              >
                 Explore
               </Button>
             </Col>
