@@ -91,7 +91,7 @@ export default function AddComponent({ toggle }) {
                 autoFocus="on"
                 type="text"
                 id="name"
-                placeholder="Enter Name"
+                placeholder="Enter Your Name"
               />
             </FormGroup>
           )}
